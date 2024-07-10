@@ -1,0 +1,31 @@
+step.1  I download the SSL server using this link
+-- https://www.openssl.org/source/
+
+step.2  after download the ssl server run 
+-- set OPENSSL_CONF=C:\path\to\your\openssl.cnf # replace with actual path where openssl.cnf this file here like 
+ this - set OPENSSL_CONF=C:\openssl-3.0.14\apps\openssl.cnf and run
+this command on your terminal where you run your project 
+
+step.3  and after that you can run this command
+-- openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
+# to configuration the SSl settings
+
+step.4  and make same changes in your settings.py file 
+SECURE_SSL_REDIRECT = True
+ALLOWED_HOSTS = ['0.0.0.0', 'your_ip_address',"127.0.0.1"]
+------
+INSTALLED_APPS = [
+    ...
+    'sslserver',
+    ...
+]
+
+step.5 and after all changes you can this command and run your server
+-- python manage.py runsslserver 127.0.0.1:8000 --certificate cert.pem --key key.pem
+
+
+pffice key
+NF6HC-QH89W-F8WYV-WWXV4-WFG6P
+
+
+
